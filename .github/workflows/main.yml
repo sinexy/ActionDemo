@@ -21,12 +21,20 @@ jobs:
         with:
           flutter-version: '3.3.4'
       - run: flutter pub get
-      - run: flutter build apk --debug
+      - run: flutter build apk --release
       - name: Push to Release
-        uses: ncipollo/release-action@v1
+        #uses: ncipollo/release-action@v1
+        uses: ActionDemo/release-action@v1
+        
         with:
-          artifacts: "build/app/outputs/apk/debug/*"
+          artifacts: "build/app/outputs/apk/release/*"
           tag: v1.0.${{ github.run_number }}
           token: ${{ secrets.TOKEN }}
+      - name: Upload PGYER File
+        id: pgyer
+        uses: ActionDemo/pgyer-upload-app-action@v1.3
+        with:
+          _api_key: ${{ secrets.PGYER_API_TOKEN }}
+          appFilePath: "build/app/outputs/apk/release/*"
          
     
