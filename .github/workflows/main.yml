@@ -25,13 +25,11 @@ jobs:
       - name: Push to Release
         #uses: ncipollo/release-action@v1
         uses: ActionDemo/release-action@v1
-        
         with:
           artifacts: "build/app/outputs/apk/release/*"
           tag: v1.0.${{ github.run_number }}
           token: ${{ secrets.TOKEN }}
       - name: Upload PGYER File
-        id: pgyer
         uses: PGYER/pgyer-upload-app-action@v1.3
         with:
           _api_key: ${{ secrets.PGYER_API_TOKEN }}
