@@ -32,7 +32,7 @@ jobs:
           token: ${{ secrets.TOKEN }}
       - name: Upload PGYER File
         id: pgyer
-        uses: sinexy/ActionDemo@master
+        uses: PGYER/pgyer-upload-app-action@v1.3
         with:
           _api_key: ${{ secrets.PGYER_API_TOKEN }}
           appFilePath: "build/app/outputs/apk/release/*"
