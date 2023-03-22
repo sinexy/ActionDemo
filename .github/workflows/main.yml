@@ -32,6 +32,6 @@ jobs:
         uses: PGYER/pgyer-upload-app-action@v1.3
         with:
           _api_key: ${{ secrets.PGYER_API_TOKEN }}
-          appFilePath: "build/app/outputs/apk/release/*"
+          appFilePath: "build/app/outputs/apk/release/app-release.apk"
          
     
